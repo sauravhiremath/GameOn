@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "111559290713",
+    "firebase_url": "https://cheat-app-5e656.firebaseio.com",
+    "project_id": "cheat-app-5e656",
+    "storage_bucket": "cheat-app-5e656.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111559290713:android:1205b8cc403f6e1e",
+        "android_client_info": {
+          "package_name": "com.example.cheat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111559290713-ul71nii1d9gddutpe91u2qijrorg7nsd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUBHV5GVthcab3ViEwDQI3Kv92ke-Fi0c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
