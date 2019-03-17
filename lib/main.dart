@@ -1,28 +1,28 @@
-import 'package:cheat_app/pages/home.page.dart';
-import 'package:cheat_app/pages/login.page.dart';
-import 'package:cheat_app/services/auth.service.dart';
 import 'package:flutter/material.dart';
+import 'login_page.dart';
+import 'home_page.dart';
+import 'create_page.dart';
 
-AuthService appAuth = new AuthService();
+void main() => runApp(MyApp());
 
-void main() async {
-  // Set default home.
-  Widget _defaultHome = new LoginPage();
+class MyApp extends StatelessWidget {
+  final routes = <String, WidgetBuilder>{
+    LoginPage.tag: (context) => LoginPage(),
+    HomePage.tag: (context) => HomePage(),
+    CreatePage.tag: (context) => CreatePage(),
+  };
 
-  // Get result of the login function.
-  bool _result = await appAuth.login();
-  if (_result) {
-    _defaultHome = new HomePage();
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'TimeSpace',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        fontFamily: 'Nunito',
+      ),
+      home: LoginPage(),
+      routes: routes,
+    );
   }
-
-  runApp(new MaterialApp(
-    title: 'TimeSpace',
-    home: _defaultHome,
-    routes: <String, WidgetBuilder>{
-      // Set routes for using the Navigator.
-      '/home': (BuildContext context) => new HomePage(),
-      '/login': (BuildContext context) => new LoginPage(),
-    },
-    )
-  );
 }
