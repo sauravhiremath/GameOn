@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cheat_app/chat_screen.dart';
 
 class CreatePage extends StatelessWidget {
   static String tag = 'create-page';
@@ -38,6 +38,11 @@ class CreateNew extends StatelessWidget {
         ),
       );
 
+      final submit = MaterialButton(
+        onPressed: ()=> ChatScreen(),
+        child: Text("Submit"),
+        );
+
       return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -47,6 +52,8 @@ class CreateNew extends StatelessWidget {
           children: <Widget>[
             name,
             SizedBox(height: 16.0),
+            submit,
+            SizedBox(height: 5.0)
           ],
         ),
       ),
