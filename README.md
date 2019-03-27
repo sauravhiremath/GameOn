@@ -1,4 +1,4 @@
-# cheat_app
+# new_app
 
 A new Flutter project.
 
