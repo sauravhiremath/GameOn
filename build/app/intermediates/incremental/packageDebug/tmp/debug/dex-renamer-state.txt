@@ -1,0 +1,4 @@
+#Mon Mar 18 06:28:35 IST 2019
+base.0=F\:\\My Projects\\Cheat App\\cheat_app\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

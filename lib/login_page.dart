@@ -9,32 +9,50 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextEditingController nameController;
-  String username;
+  TextEditingController passwordController;
+  String username,passkey;
+
   void initState() {
     super.initState();
     username="";
+    passkey="";
     getUserName();
+    getUserPass();
   }
 
   Future<String> getUserName() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
+    SharedPreferences namePref = await SharedPreferences.getInstance();
 
-    username = pref.getString('name');
+    username = namePref.getString('name');
 
     setState(() {
       nameController = new TextEditingController(text: username);
     });
+
     return username;
-}
+  }
+
+Future<String> getUserPass() async {
+    SharedPreferences passPref = await SharedPreferences.getInstance();
+
+    username = passPref.getString('pass');
+
+    setState(() {
+      passwordController = new TextEditingController(text: passkey);
+    });
+
+    return passkey;
+  }
 
   @override
   Widget build(BuildContext context) {
     
     final heading = Text(
-        "Timespace",
+        "GameOn",
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
         textAlign: TextAlign.center
     );
+
     final logo = Hero(
       tag: 'hero',
       child: CircleAvatar(
@@ -49,7 +67,18 @@ class _LoginPageState extends State<LoginPage> {
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       decoration: InputDecoration(
-        hintText: 'Name',
+        hintText: 'email/username',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+    );
+
+    final pass = TextFormField(
+      controller: passwordController,
+      keyboardType: TextInputType.text,
+      autofocus: false,
+      decoration: InputDecoration(
+        hintText: 'password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
@@ -65,11 +94,15 @@ class _LoginPageState extends State<LoginPage> {
           final prefs = await SharedPreferences.getInstance();
 
           username = nameController.text;
+          passkey =passwordController.text;
+
+          //Pass value to servers
+          
           // set value
           prefs.setString("name", username);
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(username)));
+          prefs.setString("pass", passkey);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(username,passkey)));
           // obtain shared preferences
-
         },
         padding: EdgeInsets.all(12),
         color: Colors.lightBlueAccent,

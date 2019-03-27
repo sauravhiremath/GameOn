@@ -1,0 +1,4 @@
+#Thu Mar 28 03:26:16 IST 2019
+base.0=F\:\\My Projects\\Real Time Event Management System\\cheat_app\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\1
+path.0=classes.dex
+renamed.0=classes.dex

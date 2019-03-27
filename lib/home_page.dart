@@ -5,9 +5,9 @@ import 'package:login/issues.dart';
 
 class HomePage extends StatelessWidget {
   static String tag = 'home-page';
-  final String username;
+  final String username, passkey;
   final namecontroller = TextEditingController();
-  HomePage(this.username);
+  HomePage(this.username, this.passkey);
 
   Future<String> _asyncInputDialog(BuildContext context, String action) async {
   return showDialog<String>(
@@ -139,7 +139,18 @@ class HomePage extends StatelessWidget {
     );
 
     return Scaffold(
-      body: SingleChildScrollView(child: body),
+      appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.menu), onPressed: () {},),
+        title: Text("$username's Home"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.account_circle),
+            onPressed: () {},
+          ),
+        ],
+
+
+      ),
     );
   }
 }
